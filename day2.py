@@ -22,14 +22,14 @@ with open("Documents/AdventOfCode25/input_day2.txt") as f:
 def sum_invalid(data, pattern):
     invalid = []
     for j in range(len(data)):
-        start, end = data[j].split("-")
-        for i in range(int(start), int(end) + 1):
-            if(bool(re.fullmatch(pattern, str(i)))):
-                invalid.append(i)
+        start, end = data[j].split("-")                                        # Seperate the start and end of the range
+        for i in range(int(start), int(end) + 1):                              # For each number in the range...
+            if(bool(re.fullmatch(pattern, str(i)))):                           # Check if it contains the pattern
+                invalid.append(i)                                              # If it does, add to the list of invalid numbers 
     return(sum(invalid))
     
 # Part 1
-print(sum_invalid(data, r'(\d+)\1'))
+print(sum_invalid(data, r'(\d+)\1'))                                           # Run function where pattern is a sequence repeated exactly twice
 
 # Part 2
-print(sum_invalid(data, r'(\d+)\1+'))
+print(sum_invalid(data, r'(\d+)\1+'))                                          # Run function where pattern is a sequence repeated more than once
